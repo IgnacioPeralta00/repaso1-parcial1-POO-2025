@@ -1,4 +1,27 @@
 package com.abc;
 
 public class Producto {
+    private String nombre;
+    private double precio;
+    private int id;
+    public Producto(String nombre, double precio, int id) {}
+
+    public String getNombre() {
+        return this.nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public double getPrecio() {
+        return precio;
+    }
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 }
