@@ -49,22 +49,24 @@ public class Carrito {
             if (this.getProductos().get(i).getId() == ID) {
                 String nombreProducto = this.getProductos().get(i).getNombre();
                 this.getProductos().remove(i);
-                System.out.println("'" + nombreProducto + "' eliminado al carrito");
+                System.out.println("'" + nombreProducto + "' eliminado del carrito");
                 eliminado = true;
                 break;
             }
         }
         if (!eliminado) {
             System.out.println("No se puede eliminar el producto");
+        } else {
+            this.setCantidadProductos(this.getCantidadProductos() - 1);
         }
     }
 
-    public void calcularTotal() {
+    public double calcularTotal() {
         double total = 0;
         for (Producto producto : this.getProductos()) {
             total += producto.getPrecio();
         }
-        this.setTotal(total);
+        return total;
     }
 
     public void mostrarCarrito() {
