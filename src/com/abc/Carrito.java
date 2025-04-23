@@ -59,7 +59,7 @@ public class Carrito {
         }
     }
 
-    public void CalcularTotal() {
+    public void calcularTotal() {
         double total = 0;
         for (Producto producto : this.getProductos()) {
             total += producto.getPrecio();
@@ -67,5 +67,16 @@ public class Carrito {
         this.setTotal(total);
     }
 
-
+    public void mostrarCarrito() {
+        List<Producto> productosLista = this.getProductos();
+        System.out.println("-------------------------");
+        for (Producto producto : productosLista) {
+            System.out.println("Nombre: " + producto.getNombre());
+            System.out.println("Precio: $" + producto.getPrecio());
+            System.out.println("ID: " + producto.getId());
+            System.out.println("-------------------------");
+        }
+        System.out.println("Total de productos: " + this.getCantidadProductos());
+        System.out.println("Total a pagar: $" + this.getTotal());
+    }
 }
