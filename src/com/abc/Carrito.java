@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Carrito {
     private List<Producto> productos;
-    private int cantidadProductos;
-    private double total;
+    private int cantidadProductos = 0;
+    private double total = 0;
 
     public Carrito() {
         productos = new ArrayList<>();
@@ -39,6 +39,7 @@ public class Carrito {
     public void agregarProducto(Producto producto) {
         this.getProductos().add(producto);
         System.out.println("'" + producto.getNombre() + "' agregado al carrito");
+        this.setCantidadProductos(this.getCantidadProductos() + 1);
     }
 
     // Eliminar producto por su ID
@@ -57,4 +58,14 @@ public class Carrito {
             System.out.println("No se puede eliminar el producto");
         }
     }
+
+    public void CalcularTotal() {
+        double total = 0;
+        for (Producto producto : this.getProductos()) {
+            total += producto.getPrecio();
+        }
+        this.setTotal(total);
+    }
+
+
 }
